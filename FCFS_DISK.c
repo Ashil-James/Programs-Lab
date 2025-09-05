@@ -28,6 +28,6 @@ int main()
         diskhead=queue[i];
     }
 
-    printf("Total Head Movement: %d\n", totHeadMov);
+    printf("Seek Time: %d\n", totHeadMov);
     return 0;
 }
