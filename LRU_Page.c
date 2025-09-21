@@ -1,3 +1,4 @@
+// LRU Page Replacement Algorithm 
 #include<stdio.h>
 #include<stdlib.h>
 
