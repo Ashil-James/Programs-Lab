@@ -1,14 +1,8 @@
 COPY     START    1000
 FIRST    LDA      ALPHA
 **       STA      BETA
+**       LDCH     CHARZ
 ALPHA    WORD     5
-BETA     RESW     1
-SECOND   LDCH     CHARZ
-**       STCH     C1
+BETA     WORD     10
 CHARZ    BYTE     C'Z'
-C1       RESB     1
-THIRD    LDA      GAMMA
-**       STA      DELTA
-GAMMA    WORD     10
-DELTA    RESW     1
 **       END      FIRST
