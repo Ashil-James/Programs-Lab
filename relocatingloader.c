@@ -38,8 +38,8 @@ int main()
 
             for(int i=0;i<len;i++)
             {
-                fscanf(fp1,"%2d", &opcode);
-                fscanf(fp1,"%d", &addr);
+                fscanf(fp1,"%2d", &opcode);//fix: earlier it was written opcode and address separate(like 14 10002)
+                fscanf(fp1,"%d", &addr);/
                 relobit=bitmask[i];
                 if(relobit =='0'){
                     actualadd=addr;
