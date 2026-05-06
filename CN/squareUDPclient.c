@@ -23,9 +23,6 @@ int main(){
 	server.sin_port = htons(PORT);
 	server.sin_addr.s_addr = inet_addr("127.0.0.1");
 	
-	int bind_stat = bind(sockfd, (struct sockaddr*)&server, sizeof(server));
-	printf("Binded Successfuly...\n");
-	
 	printf("Enter the number to send to server: ");
 	scanf("%d", &num);
 	
