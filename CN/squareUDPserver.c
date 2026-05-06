@@ -28,6 +28,7 @@ int main() {
 	int recv_bytes = recvfrom(sockfd, buffer, sizeof(buffer),0, (struct sockaddr*)&client, &clilen);
 	buffer[recv_bytes] = '\0';
 	printf("Number recieved successfuly..\n");
+	printf("The number is : %d", atoi(buffer));
 	
 	int num = atoi(buffer);
 	int square = num * num;
