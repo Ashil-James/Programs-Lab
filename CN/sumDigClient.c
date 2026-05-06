@@ -20,9 +20,6 @@ int main(){
 	server.sin_port = htons(PORT);
 	server.sin_addr.s_addr = inet_addr("127.0.0.1");
 	
-	int bind_stat = bind(sockfd, (struct sockaddr*)&server, sizeof(server));
-	printf("Binded Sucessfuly..\n");
-	
 	int connection_stat = connect(sockfd, (struct sockaddr*)&server, sizeof(server));
 	printf("Connected Successfuly..\n");
 	
