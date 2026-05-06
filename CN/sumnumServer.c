@@ -14,6 +14,7 @@ int main(){
 	int num2;
 	int sum;
 	char buffer[1024];
+	int opt = 1;
 	
 	int sockfd = socket(AF_INET, SOCK_STREAM, 0);
 	printf("Socket created...\n");
@@ -24,13 +25,20 @@ int main(){
 	
 	setsockopt(sockfd, SOL_SOCKET, SO_REUSEPORT | SO_REUSEADDR, &opt, sizeof(opt));
 	
-	bind_status = bind(sockfd, (struct sockaddr*)&server, sizeof(server));
+	int bind_status = bind(sockfd, (struct sockaddr*)&server, sizeof(server));
 	printf("Bind created...\n");
 	
 	listen(sockfd, 5);
 	printf("Server is listening...\n");
 	
 	int newsock = accept(sockfd, (struct sockaddr*)&client, &clilen);
+	int bytes_read1 = read(newsock, buffer, sizeof(buffer));
+	num1 = atoi(buffer);
+	int bytes_read2 = read(newsock, buffer, sizeof(buffer));
+	num2 = atoi(buffer);
 	
-	
+	sum = num1 + num2;
+	sprintf(buffer,"%d",sum);
+	send(newsock, buffer, strlen(buffer), 0);
+	printf("Sum computed and sent to client...\n");
 }
