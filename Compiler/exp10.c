@@ -32,7 +32,7 @@ int reduce() {
     if(top >= 2 &&
         strcmp(stack[top - 2], "E") == 0 &&
         strchr("+-*/", stack[top - 1][0]) &&
-        strcmp(stack[top], ")") == 0) {
+        strcmp(stack[top], "E") == 0) {
             top -= 2;
             strcpy(stack[top], "E");
             return 1;
