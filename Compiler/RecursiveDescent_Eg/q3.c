@@ -1,0 +1,59 @@
+/*
+    S -> aA 
+    A -> aA | bB
+    B -> bB | e
+*/
+#include<stdio.h>
+#include<stdlib.h>
+
+char s[100];
+int i = 0;
+
+void S();
+void A();
+void B();
+
+void error() {
+    printf("Invalid String\n");
+    exit(0);
+}
+
+void S() {
+    if(s[i] == 'a') {
+        i++;
+        A();
+    } else {
+        error();
+    }
+}
+
+void A() {
+    if(s[i] == 'a') {
+        i++;
+        A();
+    } else if(s[i] == 'b') {
+        i++;
+        B();
+    } else {
+        error();
+    }
+}
+
+void B() {
+    if(s[i] == 'b') {
+        i++;
+        B();
+    }
+}
+
+int main() {
+    printf("Enter the string: ");
+    scanf("%s", s);
+
+    S();
+    if(s[i] == '\0') {
+        printf("Accepted");
+    } else {
+        printf("rejected");
+    }
+}
